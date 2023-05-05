@@ -18,8 +18,21 @@
 $(call inherit-product, device/samsung/m31s/device.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-## Inherit some common Lineage stuff
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+## Inherit some common Elixir stuff
+$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+
+TARGET_BOOT_ANIMATION_RES := 1080
+TARGET_GAPPS_ARCH := arm64
+
+# Project-Elixir
+IS_PHONE := true
+TARGET_SUPPORTS_QUICK_TAP := true
+TARGET_SUPPORTS_GOOGLE_RECORDER := true
+TARGET_INCLUDE_STOCK_ACORE := false
+TARGET_INCLUDE_LIVE_WALLPAPERS := true
+TARGET_FACE_UNLOCK_SUPPORTED := true
+ELIXIR_BUILD_TYPE := OFFICIAL
+TARGET_USES_AOSP_RECOVERY := true
 
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 29
@@ -33,8 +46,11 @@ BUILD_FINGERPRINT := "samsung/m31snsxx/m31s:12/SP1A.210812.016/M317FXXU3DWB3:use
 PRODUCT_BUILD_PROP_OVERRIDES += \
 	PRIVATE_BUILD_DESC="m31snsxx-user 12 SP1A.210812.016 M317FXXU3DWB3 release-keys"
 
+TARGET_BOOT_ANIMATION_RES := 1080
+TARGET_GAPPS_ARCH := arm64
+
 ## Device configuration
-PRODUCT_NAME := lineage_m31s
+PRODUCT_NAME := aosp_m31s
 PRODUCT_DEVICE := m31s
 PRODUCT_BRAND := samsung
 PRODUCT_MODEL := SM-M317F
